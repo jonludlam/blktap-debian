@@ -1,20 +1,35 @@
 Source: blktap
-Section: unknown
+Section: libs
 Priority: extra
-Maintainer: Jon Ludlam <jonathan.ludlam@eu.citrix.com>
-Build-Depends: debhelper (>= 8.0.0), uuid-dev, libaio-dev
+Maintainer: Thomas Goirand <zigo@debian.org>
+Build-Depends: debhelper (>= 8)
 Standards-Version: 3.9.2
-Homepage: <insert the upstream URL, if relevant>
-#Vcs-Git: git://git.debian.org/collab-maint/blktap.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/blktap.git;a=summary
+Vcs-Browser: http://git.gplhost.com/gitweb/?p=sbox.git
+Vcs-Git: http://git.gplhost.com/sbox.git
+Homepage: http://www.gplhost.com/software-sbox.html
 
-Package: blktap
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: libvhd1.0
+Architecture: i386
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Xen API blktap shared library
+ libvhd1
 
-Package: blktap-doc
-Architecture: all
-Description: documentation for blktap
- <insert long description, indented with spaces>
+Package: blktap-dev
+Section: devel
+Architecture: i386
+Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd1.0 (= ${binary:Version}), libvhdio1.0 (= ${binary:Version})
+Description: Xen API blktap shared library (development files)
+ blktap-dev
+
+Package: blktap-utils
+Section: utils
+Architecture: i386
+Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd1.0 (= ${binary:Version}), libvhdio1.0 (= ${binary:Version})
+Description: Xen API blktap shared library (binary utils)
+ blktap-utils
+
+Package: libvhdio1.0
+Architecture: i386
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Xen API blktap shared library (shared library)
+ libvhdio1

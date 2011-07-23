@@ -1,5 +1,5 @@
-blktap (0.1-1) unstable; urgency=low
+blktap (1.0.0-1) unstable; urgency=low
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release. (Closes: #XXXXXX)
 
- -- Jon Ludlam <jonathan.ludlam@eu.citrix.com>  Thu, 07 Jul 2011 00:41:03 +0100
+ -- Thomas Goirand <zigo@debian.org>  Thu, 21 Jul 2011 17:08:44 +0000

@@ -1,21 +1,59 @@
 #!/usr/bin/make -f
-# -*- makefile -*-
-# Sample debian/rules that uses debhelper.
-#
-# This file was originally written by Joey Hess and Craig Small.
-# As a special exception, when this file is copied by dh-make into a
-# dh-make output file, you may use that output file without restriction.
-# This special exception was added by Craig Small in version 0.37 of dh-make.
-#
-# Modified to make a template file for a multi-binary package with separated
-# build-arch and build-indep targets  by Bill Allombert 2001
 
-# Uncomment this to turn on verbose mode.
-export DH_VERBOSE=1
+build: build-arch build-indep
+build-arch: build
+build-indep: build
+build-stamp:
+	$(MAKE) USE_SYSTEM_LIBRARIES=y DESTDIR=$(CURDIR)/debian/libvhd1.0
+	touch build-stamp
 
-# This has to be exported to make some magic below work.
-export DH_OPTIONS
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	$(MAKE) clean
+	dh_clean
+	rm -rf debian/libvhd1.0etc debian/libvhd1.0usr debian/libvhd1.0lib
 
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	$(MAKE) install USE_SYSTEM_LIBRARIES=y DESTDIR=$(CURDIR)/debian/libvhd1.0
 
-%:
-	dh $@ 
+	# Move stuff in libvhdio
+	mkdir -p $(CURDIR)/debian/libvhdio1.0/usr/lib
+	mv $(CURDIR)/debian/libvhd1.0/usr/lib/libvhdio.so.1.0 $(CURDIR)/debian/libvhdio1.0/usr/lib
+	mv $(CURDIR)/debian/libvhd1.0/usr/lib/libvhdio.so.1.0.0 $(CURDIR)/debian/libvhdio1.0/usr/lib
+
+	# Move stuff in the -dev packages
+	mkdir -p $(CURDIR)/debian/blktap-dev/usr/lib
+	mv $(CURDIR)/debian/libvhd1.0/usr/lib/libvhd.a $(CURDIR)/debian/blktap-dev/usr/lib
+	mv $(CURDIR)/debian/libvhd1.0/usr/lib/libvhd.so $(CURDIR)/debian/blktap-dev/usr/lib
+	mv $(CURDIR)/debian/libvhd1.0/usr/lib/libvhdio.a $(CURDIR)/debian/blktap-dev/usr/lib
+	mv $(CURDIR)/debian/libvhd1.0/usr/lib/libvhdio.so $(CURDIR)/debian/blktap-dev/usr/lib
+	mv $(CURDIR)/debian/libvhd1.0/usr/include $(CURDIR)/debian/blktap-dev/usr
+
+	# Move things in the blktap-utils package
+	mkdir -p $(CURDIR)/debian/blktap-utils/usr
+	mv $(CURDIR)/debian/libvhd1.0/usr/sbin $(CURDIR)/debian/blktap-utils/usr
+
+binary-indep: build install
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install
