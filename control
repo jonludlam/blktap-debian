@@ -70,6 +70,5 @@ Description: Blktap userspace backend and drivers.
 Package: blktap-dev
 Section: devel
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd1.0 (= ${binary:Version}), libvhdio1.0 (= ${binary:Version})
-Description: Xen API blktap shared library (development files)
- blktap-dev
+Depends: ${misc:Depends}, ${shlibs:Depends}, blktap (= ${binary:Version})
+Description: Blktap control libary - development files.
