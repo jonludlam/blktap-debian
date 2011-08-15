@@ -26,6 +26,11 @@ Description: VHD file format access library
   image initialization, inspection and manipulation to both VHD user
   utilities and the VHD disk driver in Blktap.
 
+Package: libvhd-dev
+Architecture: any
+Depends: libvhd (= ${binary:Version})
+Description: VHD file format access library - development files
+
 Package: blktap-dev
 Section: devel
 Architecture: any
