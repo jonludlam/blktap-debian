@@ -1,6 +1,6 @@
 Source: blktap
 Section: libs
-Priority: extra
+Priority: optional
 Maintainer: Thomas Goirand <zigo@debian.org>
 Build-Depends: debhelper (>= 8), uuid-dev, libaio-dev
 Standards-Version: 3.9.2
