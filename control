@@ -48,6 +48,25 @@ Description: VHD standard I/O overrides.
   (LD_PRELOAD), this can sometimes be used to use standard file
   utilities on VHDs.
 
+Package: blktap
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libvhd (= ${binary:Version})
+Recommends: blktap-dkms
+Suggests: vhd-utils
+Description: Blktap userspace backend and drivers.
+  Blktap creates kernel block devices which realize I/O requests to
+  processes implementing virtual hard disk images entirely in user
+  space.
+  .
+  Typical disk images may be implemented as files, in memory, or
+  stored on other hosts across the network. The image drivers included
+  with tapdisk can map disk I/O to sparse file images accessed through
+  Linux DIO/AIO and VHD images with snapshot functionality.
+  .
+  This packages includes the control utilities needed to create
+  destroy and manipulate devices ('tap-ctl'), the 'tapdisk' driver
+  program to perform tap devices I/O, and a number of image drivers.
+
 Package: blktap-dev
 Section: devel
 Architecture: any
