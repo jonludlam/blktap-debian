@@ -39,6 +39,15 @@ Description: Utilities to work with VHD disk images files.
   This package contains user utilties to inspect, test, and manipulate
   Virtual Hard Disk (VHD) images through libvhd.
 
+Package: libvhdio
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd (= ${binary:Version})
+Description: VHD standard I/O overrides.
+  Libvhdio maps standard POSIX file I/O operations to VHD file I/O. On
+  systems with a runtime linker supporting selective library overrides
+  (LD_PRELOAD), this can sometimes be used to use standard file
+  utilities on VHDs.
+
 Package: blktap-dev
 Section: devel
 Architecture: any
@@ -52,12 +61,6 @@ Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd1.0 (= ${binary:Version}), libvhdio1.0 (= ${binary:Version})
 Description: Xen API blktap shared library (binary utils)
  blktap-utils
-
-Package: libvhdio1.0
-Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Xen API blktap shared library (shared library)
- libvhdio1
 
 Package: libblktapctl1.0
 Architecture: any
