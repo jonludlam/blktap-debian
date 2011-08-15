@@ -1,3 +1,19 @@
+blktap (2.0.99-1) unstable; urgency=low
+
+  * New upstream version 2.0.99
+
+  * rules: Autotools based builds.
+
+  * control: Removed blktap-utils, add blktap-dev.
+
+  * control: Renamed libvhd1.0 to libvhd, add libvhd-dev.
+
+  * debian/copyrights: Fixed.
+
+  * debian/control: Set Prio to optional.
+
+ -- Daniel Stodden <daniel.stodden@citrix.com>  Mon, 01 Aug 2011 23:20:46 +0000
+
 blktap (1.0.0-1) unstable; urgency=low
 
   * Initial release. (Closes: #XXXXXX)
