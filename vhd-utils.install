@@ -1,0 +1,6 @@
+usr/bin/vhd-util
+usr/bin/vhd-update
+usr/bin/vhd-index
+usr/sbin/vhdpartx
+usr/sbin/lvm-util
+usr/sbin/part-util

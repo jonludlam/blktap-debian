@@ -31,6 +31,14 @@ Architecture: any
 Depends: libvhd (= ${binary:Version})
 Description: VHD file format access library - development files
 
+Package: vhd-utils
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends},
+	 libvhd (= ${binary:Version}), libvhdio (= ${binary:Version})
+Description: Utilities to work with VHD disk images files.
+  This package contains user utilties to inspect, test, and manipulate
+  Virtual Hard Disk (VHD) images through libvhd.
+
 Package: blktap-dev
 Section: devel
 Architecture: any
