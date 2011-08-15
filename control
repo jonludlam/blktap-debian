@@ -73,10 +73,3 @@ Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd1.0 (= ${binary:Version}), libvhdio1.0 (= ${binary:Version})
 Description: Xen API blktap shared library (development files)
  blktap-dev
-
-Package: blktap-utils
-Section: utils
-Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd1.0 (= ${binary:Version}), libvhdio1.0 (= ${binary:Version})
-Description: Xen API blktap shared library (binary utils)
- blktap-utils
