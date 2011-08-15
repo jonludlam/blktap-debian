@@ -2,8 +2,8 @@ Source: blktap
 Section: libs
 Priority: optional
 Maintainer: Thomas Goirand <zigo@debian.org>
-Build-Depends: debhelper (>= 8), autotools-dev, uuid-dev, libaio-dev
 Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 7.0.50~), autotools-dev, uuid-dev, libaio-dev
 Vcs-Browser: http://git.gplhost.com/gitweb/?p=sbox.git
 Vcs-Git: http://git.gplhost.com/sbox.git
 Homepage: http://www.gplhost.com/software-sbox.html
