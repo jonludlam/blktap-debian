@@ -1,3 +1,9 @@
+blktap (2.0.90-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- jon <jon@dhcp-3-204.uk.xensource.com>  Fri, 02 Sep 2011 14:40:41 +0100
+
 blktap (1.0.0-1) unstable; urgency=low
 
   * Initial release. (Closes: #XXXXXX)

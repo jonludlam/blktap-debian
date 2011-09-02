@@ -2,7 +2,7 @@ Source: blktap
 Section: libs
 Priority: extra
 Maintainer: Thomas Goirand <zigo@debian.org>
-Build-Depends: debhelper (>= 8), uuid-dev, libaio-dev
+Build-Depends: debhelper (>= 8), uuid-dev, libaio-dev, dh-autoreconf
 Standards-Version: 3.9.2
 Vcs-Browser: http://git.gplhost.com/gitweb/?p=sbox.git
 Vcs-Git: http://git.gplhost.com/sbox.git
