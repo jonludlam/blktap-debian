@@ -8,34 +8,35 @@ Vcs-Browser: http://git.gplhost.com/gitweb/?p=sbox.git
 Vcs-Git: http://git.gplhost.com/sbox.git
 Homepage: http://www.gplhost.com/software-sbox.html
 
-Package: libvhd1.0
-Architecture: i386
+Package: libvhd2.0.90
+Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Xen API blktap shared library
  libvhd1
 
 Package: blktap-dev
 Section: devel
-Architecture: i386
+Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd1.0 (= ${binary:Version}), libvhdio1.0 (= ${binary:Version})
 Description: Xen API blktap shared library (development files)
  blktap-dev
 
 Package: blktap-utils
 Section: utils
-Architecture: i386
+Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd1.0 (= ${binary:Version}), libvhdio1.0 (= ${binary:Version})
 Description: Xen API blktap shared library (binary utils)
  blktap-utils
 
-Package: libvhdio1.0
-Architecture: i386
+Package: libvhdio2.0.90
+Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Xen API blktap shared library (shared library)
  libvhdio1
 
-Package: libblktapctl1.0
-Architecture: i386
+Package: libblktapctl2.0.90
+Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Xen API blktap shared library (shared library)
  libblktapctl1
+

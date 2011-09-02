@@ -1,0 +1,5 @@
+/usr/include
+/usr/lib/*.a
+/usr/lib/libvhd.so
+/usr/lib/libvhdio.so
+
