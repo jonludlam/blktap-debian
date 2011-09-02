@@ -10,6 +10,8 @@ clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp
+	dh_autoreconf
+	dh_auto_configure
 	$(MAKE) clean
 	dh_clean
 
@@ -21,15 +23,14 @@ install: build
 
 	# Move stuff in libvhdio
 	mkdir -p $(CURDIR)/debian/libvhdio2.0.90/usr/lib
-	mv $(CURDIR)/debian/libvhd2.0.90/usr/lib/libvhdio.so.2.0 $(CURDIR)/debian/libvhdio2.0.90/usr/lib
-	mv $(CURDIR)/debian/libvhd2.0.90/usr/lib/libvhdio.so.2.0.90 $(CURDIR)/debian/libvhdio2.0.90/usr/lib
+	mv $(CURDIR)/debian/libvhd2.0.90/usr/lib/libvhdio-2.0.90.so $(CURDIR)/debian/libvhdio2.0.90/usr/lib
 
 	# Move stuff in the -dev packages
 	mkdir -p $(CURDIR)/debian/blktap-dev/usr/lib
-	mv $(CURDIR)/debian/libvhd2.0.90/lib/libblktapctl.a $(CURDIR)/debian/blktap-dev/usr/lib
+	mv $(CURDIR)/debian/libvhd2.0.90/usr/lib/libblktapctl.a $(CURDIR)/debian/blktap-dev/usr/lib
 	mv $(CURDIR)/debian/libvhd2.0.90/usr/lib/libvhd.a $(CURDIR)/debian/blktap-dev/usr/lib
 	mv $(CURDIR)/debian/libvhd2.0.90/usr/lib/libvhd.so $(CURDIR)/debian/blktap-dev/usr/lib
-	mv $(CURDIR)/debian/libvhd2.0.90/usr/lib/libvhdio.a $(CURDIR)/debian/blktap-dev/usr/lib
+#	mv $(CURDIR)/debian/libvhd2.0.90/usr/lib/libvhdio.a $(CURDIR)/debian/blktap-dev/usr/lib
 	mv $(CURDIR)/debian/libvhd2.0.90/usr/lib/libvhdio.so $(CURDIR)/debian/blktap-dev/usr/lib
 	mv $(CURDIR)/debian/libvhd2.0.90/usr/include $(CURDIR)/debian/blktap-dev/usr
 
@@ -39,8 +40,8 @@ install: build
 	mv $(CURDIR)/debian/libvhd2.0.90/etc $(CURDIR)/debian/blktap-utils
 
 	# Move things in the libblktapctl2.0.90 package
-	mkdir -p $(CURDIR)/debian/libblktapctl2.0.90/usr
-	mv $(CURDIR)/debian/libvhd2.0.90/lib $(CURDIR)/debian/libblktapctl2.0.90/usr
+	mkdir -p $(CURDIR)/debian/libblktapctl2.0.90/usr/lib
+	mv $(CURDIR)/debian/libvhd2.0.90/usr/lib/libblktapctl-2.0.90.so $(CURDIR)/debian/libblktapctl2.0.90/usr/lib
 
 
 binary-indep: build install
