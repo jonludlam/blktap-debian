@@ -1,4 +1,5 @@
 /usr/sbin
+/usr/bin
 /usr/lib/blktap/tapdisk
 /etc
 
