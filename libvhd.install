@@ -1,2 +1,2 @@
 usr/lib/libvhd.so
-usr/lib/libvhd-*.so
+usr/lib/libvhd.so.*
