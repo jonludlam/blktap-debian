@@ -1,5 +1,6 @@
-/usr/include
-/usr/lib/*.a
-/usr/lib/libvhd.so
-/usr/lib/libvhdio.so
-
+usr/lib/libblktapctl.a
+usr/lib/libblktapctl.la
+usr/include/blktap/tap-ctl.h
+usr/include/blktap/blktaplib.h
+usr/include/blktap/tapdisk-message.h
+usr/include/blktap/blktap2.h

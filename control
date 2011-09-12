@@ -1,42 +1,74 @@
 Source: blktap
 Section: libs
-Priority: extra
+Priority: optional
 Maintainer: Thomas Goirand <zigo@debian.org>
-Build-Depends: debhelper (>= 8), uuid-dev, libaio-dev, dh-autoreconf
 Standards-Version: 3.9.2
-Vcs-Browser: http://git.gplhost.com/gitweb/?p=sbox.git
-Vcs-Git: http://git.gplhost.com/sbox.git
-Homepage: http://www.gplhost.com/software-sbox.html
+Build-Depends: debhelper (>= 7.0.50~), autotools-dev, uuid-dev, libaio-dev
+#Homepage: http://www.gplhost.com/software-sbox.html
+#Vcs-Git: git://git.debian.org/collab-maint/blktap.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/blktap.git;a=summary
 
-Package: libvhd2.0.90
+Package: libvhd
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Xen API blktap shared library
- libvhd1
+Description: VHD file format access library
+  Virtual Hard Disk (VHD) is a file format standard which maps logical
+  hard disk contents to a physical disk image format, which can then
+  be more efficiently stored in a variety of different storage types,
+  such as file systems or logical volumes.
+  .
+  VHDs are container files storing block metadata alongside a virtual
+  disk's contents, in a single disk image. The metadata enables
+  advanced storage backend capabilities, such as thin provisioning,
+  disk image snapshotting, and coalescing of differencing disks.
+  .
+  Libvhd is a library to access VHD format metadata. It provides disk
+  image initialization, inspection and manipulation to both VHD user
+  utilities and the VHD disk driver in Blktap.
+
+Package: libvhd-dev
+Architecture: any
+Depends: libvhd (= ${binary:Version})
+Description: VHD file format access library - development files
+
+Package: vhd-utils
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends},
+	 libvhd (= ${binary:Version}), libvhdio (= ${binary:Version})
+Description: Utilities to work with VHD disk images files.
+  This package contains user utilties to inspect, test, and manipulate
+  Virtual Hard Disk (VHD) images through libvhd.
+
+Package: libvhdio
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd (= ${binary:Version})
+Description: VHD standard I/O overrides.
+  Libvhdio maps standard POSIX file I/O operations to VHD file I/O. On
+  systems with a runtime linker supporting selective library overrides
+  (LD_PRELOAD), this can sometimes be used to use standard file
+  utilities on VHDs.
+
+Package: blktap
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libvhd (= ${binary:Version})
+Recommends: blktap-dkms
+Suggests: vhd-utils
+Description: Blktap userspace backend and drivers.
+  Blktap creates kernel block devices which realize I/O requests to
+  processes implementing virtual hard disk images entirely in user
+  space.
+  .
+  Typical disk images may be implemented as files, in memory, or
+  stored on other hosts across the network. The image drivers included
+  with tapdisk can map disk I/O to sparse file images accessed through
+  Linux DIO/AIO and VHD images with snapshot functionality.
+  .
+  This packages includes the control utilities needed to create
+  destroy and manipulate devices ('tap-ctl'), the 'tapdisk' driver
+  program to perform tap devices I/O, and a number of image drivers.
 
 Package: blktap-dev
 Section: devel
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd2.0.90 (= ${binary:Version}), libvhdio2.0.90 (= ${binary:Version})
-Description: Xen API blktap shared library (development files)
- blktap-dev
-
-Package: blktap-utils
-Section: utils
-Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, libvhd2.0.90 (= ${binary:Version}), libvhdio2.0.90 (= ${binary:Version})
-Description: Xen API blktap shared library (binary utils)
- blktap-utils
-
-Package: libvhdio2.0.90
-Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Xen API blktap shared library (shared library)
- libvhdio1
-
-Package: libblktapctl2.0.90
-Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Xen API blktap shared library (shared library)
- libblktapctl1
-
+Depends: ${misc:Depends}, ${shlibs:Depends}, blktap (= ${binary:Version})
+Description: Blktap control libary - development files.

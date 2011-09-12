@@ -1,0 +1,4 @@
+usr/sbin/tap-ctl
+usr/lib/blktap/tapdisk
+usr/lib/libblktapctl.so
+usr/lib/libblktapctl.so.*

@@ -1,0 +1,16 @@
+*~
+*.ex
+*.EX
+*.log
+*.substvars
+*.debhelper
+files
+tmp/
+blktap/
+blktap-dev/
+libvhd/
+libvhd-dev/
+libvhdio/
+libvhdio-dev/
+vhd-utils/
+source/
