@@ -50,7 +50,7 @@ Description: VHD standard I/O overrides.
 
 Package: blktap
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libvhd (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, libvhd (= ${binary:Version}), blktap-dkms
 Recommends: blktap-dkms
 Suggests: vhd-utils
 Description: Blktap userspace backend and drivers.
