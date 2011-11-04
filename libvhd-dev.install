@@ -1,8 +1,0 @@
-usr/lib/libvhd.a
-usr/lib/libvhd.la
-usr/include/vhd/vhd.h
-usr/include/vhd/libvhd-index.h
-usr/include/vhd/libvhd-journal.h
-usr/include/vhd/libvhd.h
-usr/include/vhd/vhd-util.h
-usr/include/vhd/list.h

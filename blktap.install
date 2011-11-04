@@ -1,5 +1,0 @@
-usr/sbin/tap-ctl
-usr/sbin/td-util
-usr/lib/blktap/tapdisk
-usr/lib/libblktapctl.so
-usr/lib/libblktapctl.so.*
